@@ -1,0 +1,90 @@
+CRITICAL - 2024-11-28 14:55:07 --> ErrorException: Cannot redeclare App\Controllers\Home::about()
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 27.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-11-28 14:57:18 --> ErrorException: Cannot redeclare App\Controllers\Home::about()
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 27.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-11-28 14:57:23 --> ErrorException: Cannot redeclare App\Controllers\Home::about()
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 27.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-11-28 15:10:39 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content.php"
+[Method: GET, Route: content]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('content', [], true)
+ 3 APPPATH\Controllers\Home.php(29): view('content')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->content()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-28 15:10:41 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content.php"
+[Method: GET, Route: content]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('content', [], true)
+ 3 APPPATH\Controllers\Home.php(29): view('content')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->content()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-28 15:11:03 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content.php"
+[Method: GET, Route: content]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('content', [], true)
+ 3 APPPATH\Controllers\Home.php(29): view('content')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->content()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-28 15:34:29 --> ErrorException: Undefined variable $employees
+[Method: GET, Route: /]
+in APPPATH\Views\landing.php on line 13.
+ 1 APPPATH\Views\landing.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $employees', 'D:\\xampp\\htdocs\\TX32-24-JedsWebSys\\app\\Views\\landing.php', 13)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\TX32-24-JedsWebSys\\app\\Views\\landing.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('landing')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-28 15:34:38 --> ErrorException: Undefined variable $employees
+[Method: GET, Route: /]
+in APPPATH\Views\landing.php on line 13.
+ 1 APPPATH\Views\landing.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $employees', 'D:\\xampp\\htdocs\\TX32-24-JedsWebSys\\app\\Views\\landing.php', 13)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\TX32-24-JedsWebSys\\app\\Views\\landing.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('landing')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-28 15:34:43 --> ErrorException: Undefined variable $employees
+[Method: GET, Route: /]
+in APPPATH\Views\landing.php on line 13.
+ 1 APPPATH\Views\landing.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $employees', 'D:\\xampp\\htdocs\\TX32-24-JedsWebSys\\app\\Views\\landing.php', 13)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\TX32-24-JedsWebSys\\app\\Views\\landing.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('landing')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
