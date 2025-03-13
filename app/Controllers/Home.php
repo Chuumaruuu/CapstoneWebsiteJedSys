@@ -24,6 +24,15 @@ class Home extends BaseController
         return view('about');
     }
 
+    public function gallery(): string
+    {
+        return view('gallery');
+    }
+    public function gameplay(): string
+    {
+        return view('gameplay');
+    }
+
     public function content(): string
     {
         return view('content');

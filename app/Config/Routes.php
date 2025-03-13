@@ -9,6 +9,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/landing', 'Home::landing');
 $routes->get('/login', 'Home::login');
 $routes->get('/about', 'Home::about');
+$routes->get('/gallery', 'Home::gallery');
+$routes->get('/gameplay', 'Home::gameplay');
 $routes->get('/content', 'Home::content');
 $routes->get('/registration','Home::registration');
 $routes->get('/database', 'UserControl::index');
