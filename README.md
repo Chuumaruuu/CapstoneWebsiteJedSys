@@ -7,7 +7,7 @@
   <a href="https://github.com/zyx-0314/">
     <img src="./public/img/JWS_Logo.png" alt="JWS Logo" width="130" height="130">
   </a>
-  <h3 align="center">Jed's Web Sys</h3>
+  <h3 align="center">Jed's System Analysis and Design</h3>
 </div>
 
 <div align="center">
@@ -35,13 +35,11 @@
 
 ## Overview
 
-**Jed's Web Sys** is a team composed of IT students working to create web pages in accordance to their requirements in their subject "Web Systems and Development."
+**Jed's System Analysis and Design ** is a team composed of IT students working to create web pages in accordance to their requirements in their subject "Project Management"
 
 ## Members
-<a href="https://github.com/Cashmereee06"><img src="https://avatars.githubusercontent.com/u/159912341?v=4" alt="Callangan" width="130" height="130">
 <a href="https://github.com/Laezi12"><img src="https://avatars.githubusercontent.com/u/86827446?v=4" alt="Castañeda" width="130" height="130">
 <a href="https://github.com/Chuumaruuu"><img src="https://avatars.githubusercontent.com/u/144074094?v=4" alt="Gabinete" width="130" height="130">
-<a href="https://github.com/rayrcreo"><img src="https://avatars.githubusercontent.com/u/84557805?v=4" alt="Mongcal" width="130" height="130">
 <a href="https://github.com/Krus0917"><img src="https://avatars.githubusercontent.com/u/135810632?v=4" alt="Montinola" width="130" height="130">
 <a href="https://github.com/anon321123"><img src="https://avatars.githubusercontent.com/u/144293822?v=4" alt="Tuazon" width="130" height="130">
 
