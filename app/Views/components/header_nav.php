@@ -2,7 +2,9 @@
     <!-- MISSING: LOGO -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
-    <img src="<?php echo IMG.'JS&D-Logo.png'; ?>" alt="Mash" class="logo" width=120px height=120px>
+    <a href="<?=base_url() ?>">
+        <img src="<?php echo IMG.'JS&D-Logo.png'; ?>" alt="Mash" class="logo" width=120px height=120px>
+    </a>
     <div class="collapse navbar-collapse">
         <ul class = "navbar-nav me-auto mb-2 mb-sm-0">
             <li class="nav-item ms-5">
