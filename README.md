@@ -16,7 +16,7 @@
 
 <br/>
 
-![](https://visit-counter.vercel.app/counter.png?page=FEU-TECH-Code-Igniter/WST-JedsWebSys-Summative)
+![](https://visit-counter.vercel.app/counter.png?page=FEU-TECH-Code-Igniter/CapstoneWebsiteJedSys)
 
 ---
 
