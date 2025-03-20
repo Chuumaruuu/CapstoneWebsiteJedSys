@@ -1,32 +1,26 @@
-<header class="header">
-    <!-- MISSING: LOGO -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" data-bs-theme="dark">
-    <div class="container-fluid">
-    <a href="<?=base_url() ?>">
-        <img src="<?php echo IMG.'JS&D-Logo.png'; ?>" alt="Mash" class="logo" width=120px height=120px>
-    </a>
-    <div class="collapse navbar-collapse">
-        <ul class = "navbar-nav me-auto mb-2">
-            <li class="nav-item ms-5">
-                <a href="<?=base_url() ?>" class="nav-link fs-3">Home</a>
+<header class="bg-dark p-3 mb-3" data-bs-theme="dark">
+<div class="container-fluid">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="<?=base_url() ?>" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="<?php echo IMG.'JS&D-Logo.png'; ?>" alt="Mash" class="logo" width=60px height=60px>
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li class="nav-item">
+                <a href="<?=base_url() ?>" class="nav-link px-2 link-body-emphasis">Home</a>
             </li>
-            <li class="nav-item ms-5">
-                <a href="<?=base_url().'about' ?>" class="nav-link fs-3">About</a>
+            <li class="nav-item ms-3">
+                <a href="<?=base_url().'about'?>" class="nav-link px-2 link-body-emphasis">About</a>
             </li>
-            <li class="nav-item ms-5">
-                <a href="<?=base_url().'gallery' ?>" class="nav-link fs-3">Gallery</a>
+            <li class="nav-item ms-3">
+                <a href="<?=base_url().'gallery'?>" class="nav-link px-2 link-body-emphasis">Gallery</a>
             </li>
-            <li class="nav-item ms-5">
-                <a href="<?=base_url().'gameplay' ?>" class="nav-link fs-3">Gameplay</a>
+            <li class="nav-item ms-3">
+                <a href="<?=base_url().'gameplay'?>" class="nav-link px-2 link-body-emphasis">Gameplay</a>
             </li>
         </ul>
-        <ul class = "navbar-nav me-5 mb-2">
-            <li class="nav-item ms-5">
-                <a href="<?=base_url().'login' ?>" class="nav-link fs-3">Login</a>
-            </li>
-        </ul>
+        <div class="text-end">
+            <a href="<?=base_url().'login' ?>" class="btn btn-dark me-2">Login</a>
+        </div>
     </div>
-    </div>
-    </nav>
-    <a href="" class="btn action"></a>
+</div>
 </header>
