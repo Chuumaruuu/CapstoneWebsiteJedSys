@@ -6,20 +6,20 @@
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li class="nav-item">
-                <a href="<?=base_url() ?>" class="nav-link px-2 link-body-emphasis">Home</a>
+                <a href="<?=base_url() ?>" class="nav-link px-2 link-body-emphasis fs-4">Home</a>
             </li>
             <li class="nav-item ms-3">
-                <a href="<?=base_url().'about'?>" class="nav-link px-2 link-body-emphasis">About</a>
+                <a href="<?=base_url().'about'?>" class="nav-link px-2 link-body-emphasis fs-4">About</a>
             </li>
             <li class="nav-item ms-3">
-                <a href="<?=base_url().'gallery'?>" class="nav-link px-2 link-body-emphasis">Gallery</a>
+                <a href="<?=base_url().'gallery'?>" class="nav-link px-2 link-body-emphasis fs-4">Gallery</a>
             </li>
             <li class="nav-item ms-3">
-                <a href="<?=base_url().'gameplay'?>" class="nav-link px-2 link-body-emphasis">Gameplay</a>
+                <a href="<?=base_url().'gameplay'?>" class="nav-link px-2 link-body-emphasis fs-4">Gameplay</a>
             </li>
         </ul>
         <div class="text-end">
-            <a href="<?=base_url().'login' ?>" class="btn btn-dark me-2">Login</a>
+            <a href="<?=base_url().'login' ?>" class="btn btn-dark me-2 fs-4">Login</a>
         </div>
     </div>
 </div>
