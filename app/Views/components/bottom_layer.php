@@ -1,23 +1,20 @@
-    <footer class="bg-dark text-white d-flex flex-wrap justify-content-between align-items-center py-3 px-5 border-top" data-bs-theme="dark">
-        <p class="col-md-4 mb-0 fs-3">© 2025 Jed's System Analysis and Design</p>
+    <footer class="bg-dark d-flex flex-wrap justify-content-between align-items-center mb-3 py-3 px-3" data-bs-theme="dark">
+        <p class="col-md-4 mb-0 text-body-secondary">© 2025 Jed's System Analysis and Design</p>
         <a href="<?=base_url() ?>" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img src="<?php echo IMG.'JS&D-Logo.png'; ?>" alt="Mash" class="bi me-2" width="120px" height=120px>
+            <img src="<?php echo IMG.'JS&D-Logo.png'; ?>" alt="Mash" class="bi me-2" width=60px height=60px>
         </a>
         <ul class = "nav col-md-4 justify-content-end">
                 <li class="nav-item">
-                    <a href="<?=base_url() ?>" class="nav-link px-4 text-body-secondary fs-3">Home</a>
+                    <a href="<?=base_url() ?>" class="nav-link px-2 link-body-emphasis">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=base_url().'about' ?>" class="nav-link px-4 text-body-secondary fs-3">About</a>
+                    <a href="<?=base_url().'about' ?>" class="nav-link px-2 link-body-emphasis">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=base_url().'gallery' ?>" class="nav-link px-4 text-body-secondary fs-3">Gallery</a>
+                    <a href="<?=base_url().'gallery' ?>" class="nav-link px-2 link-body-emphasis">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=base_url().'gameplay' ?>" class="nav-link px-4 text-body-secondary fs-3">Gameplay</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?=base_url().'login' ?>" class="nav-link px-2 text-body-secondary fs-3">Login</a>
+                    <a href="<?=base_url().'gameplay' ?>" class="nav-link px-2 link-body-emphasis">Gameplay</a>
                 </li>
         </ul>
     </footer>
