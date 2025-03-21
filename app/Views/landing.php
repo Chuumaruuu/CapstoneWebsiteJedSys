@@ -1,9 +1,9 @@
 <?= $this->extend('layout/main_layout') ?>
 <?= $this->section('pageContents') ?>
 <main>
-<div class = "text-center">
+<div class = "text-center px-5">
 <header class="text-center py-5 px-5 container-fluid position-relative overflow-hidden p-3 text-center">
-    <img src="<?php echo IMG.'Eden Island Frontier - Logo.png'; ?>" alt="GameLogo" class="mb-4 img-fluid">
+    <img src="<?php echo IMG.'Eden Island Frontier - Logo.png'; ?>" alt="GameLogo" class="mb-4 img-fluid px-5">
     <div class="mx-auto">
         <p class ="lead mb-4 fw-bold fs-1 text-light">A 3D Strategy Simulation Game about the Implications of Climate Change and Economic Empowerment</p>
     </div>
@@ -14,9 +14,9 @@
         color: white;">About</a>
 </header>
 </div>
-<div class="container-fluid px-4 py-5 my-5">
+<div class="container-fluid px-4 py-5 text-bg-light">
 <div class="row featurette align-items-center">
-      <div class="col-md-7 text-light">
+      <div class="col-md-7">
         <h2 class="featurette-heading fw-normal lh-1 display-1">Eden Island Frontier</h2>
         <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
       </div>
@@ -25,8 +25,8 @@
       </div>
     </div>
 </div>
-<div id="custom-cards" class="container-fluid px-4 py-5 text-center text-bg-light">
-    <h2 class="lead mb-4 fw-bold fs-1 border-bottom">Gallery</h2>
+<div id="custom-cards" class="container-fluid px-4 py-5 text-center">
+    <h2 class="lead mb-4 fw-bold display-2 border-bottom text-white">Gallery</h2>
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3 text-center">
         <div class="col">
             <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg hvr-grow" style="background-image: url('<?php echo IMG.'Screenshot 2025-03-07 002058.jpg'; ?>'">
