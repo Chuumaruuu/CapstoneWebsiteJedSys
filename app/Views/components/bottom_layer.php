@@ -5,16 +5,16 @@
         </a>
         <ul class = "nav col-md-4 justify-content-end">
                 <li class="nav-item">
-                    <a href="<?=base_url() ?>" class="nav-link px-3 link-body-emphasis fs-4">Home</a>
+                    <a href="<?=base_url() ?>" class="nav-link px-3 link-body-emphasis fs-4 hvr-hang">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=base_url().'about' ?>" class="nav-link px-3 link-body-emphasis fs-4">About</a>
+                    <a href="<?=base_url().'about' ?>" class="nav-link px-3 link-body-emphasis fs-4 hvr-hang">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=base_url().'gallery' ?>" class="nav-link px-3 link-body-emphasis fs-4">Gallery</a>
+                    <a href="<?=base_url().'gallery' ?>" class="nav-link px-3 link-body-emphasis fs-4 hvr-hang">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=base_url().'gameplay' ?>" class="nav-link px-3 link-body-emphasis fs-4">Gameplay</a>
+                    <a href="<?=base_url().'gameplay' ?>" class="nav-link px-3 link-body-emphasis fs-4 hvr-hang">Gameplay</a>
                 </li>
         </ul>
     </footer>
