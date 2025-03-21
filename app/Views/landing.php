@@ -21,7 +21,7 @@
         <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
       </div>
       <div class="col-md-5">
-        <video class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="<?php echo IMG.'483282794_9019928211448947_6254525023304408926_n.mp4'; ?>" controls></video>
+        <video class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded-4" width="500" height="500" src="<?php echo IMG.'483282794_9019928211448947_6254525023304408926_n.mp4'; ?>" controls></video>
       </div>
     </div>
 </div>
