@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\UserModel;
 class Home extends BaseController
 {
     public function index(): string
@@ -41,5 +41,14 @@ class Home extends BaseController
     public function registration(): string
     {
         return view('registration');
+    }
+
+    public function database()
+    {
+        $u = new UserModel();
+        $data = $u->where('status','active')->findAll();
+        echo "<pre>";
+        print_r($data);
+        echo "<pre>";
     }
 }

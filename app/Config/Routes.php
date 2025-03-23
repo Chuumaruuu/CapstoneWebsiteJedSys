@@ -13,4 +13,4 @@ $routes->get('/gallery', 'Home::gallery');
 $routes->get('/gameplay', 'Home::gameplay');
 $routes->get('/content', 'Home::content');
 $routes->get('/registration','Home::registration');
-$routes->get('/database', 'UserControl::index');
+$routes->get('/database', 'Home::database');
