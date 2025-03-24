@@ -1,60 +1,59 @@
 <?= $this->extend('layout/sign_up_layout') ?>
 <?= $this->section('pageContents') ?>
-<form class="row g-3 mx-5 my-5">
-<div class="col-md-2">
-    <label for="inputEmail4" class="form-label">First Name</label>
-    <input type="email" class="form-control" id="inputEmail4">
+<div class="card my-5 mx-auto p-2 justify-content-center" style="width: 75%;">
+<div class="d-flex align-items-center">
+  <div class="flex-shrink-0 ms-3">
+    <img src="<?php echo IMG.'JS&D-Logo-Dark.png'; ?>" alt="GameLogo" width=120px height=120px>
   </div>
-  <div class="col-md-4">
-    <label for="inputPassword4" class="form-label">Last Name</label>
-    <input type="password" class="form-control" id="inputPassword4">
+  <div class="flex-grow-1 ms-3">
+    <h1 class="display-7 fw-bold mt-2">Online Registration</h1>
   </div>
-  <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Email</label>
-    <input type="email" class="form-control" id="inputEmail4">
+</div>
+<form class="row g-3 py-3 mb-2 justify-content-center">
+  <div class="col-md-3">
+    <label for="inputFirstname" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="inputFirstname">
   </div>
-  <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Password</label>
-    <input type="password" class="form-control" id="inputPassword4">
+  <div class="col-md-3">
+    <label for="inputMiddlename" class="form-label">Middle Name</label>
+    <input type="text" class="form-control" id="inputMiddlename">
   </div>
-  <div class="col-12">
-    <label for="inputAddress" class="form-label">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="col-12">
-    <label for="inputAddress2" class="form-label">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="col-md-6">
-    <label for="inputCity" class="form-label">City</label>
-    <input type="text" class="form-control" id="inputCity">
-  </div>
-  <div class="col-md-4">
-    <label for="inputState" class="form-label">State</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
-      <option>...</option>
-    </select>
+  <div class="col-md-3">
+    <label for="inputLastname" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="inputLastname">
   </div>
   <div class="col-md-2">
-    <label for="inputZip" class="form-label">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
+    <label for="inputBirthdate" class="form-label">Birthdate</label>
+    <input type="date" class="form-control" id="birthdate" name="birthdate">
   </div>
-  <div class="col-12">
+  <div class="col-md-6">
+    <label for="inputEmail" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail">
+  </div>
+  <div class="col-md-5">
+    <label for="inputContactno" class="form-label">Contact Number</label>
+    <input type="text" class="form-control" id="inputContactno">
+  </div>
+  <div class="col-11">
+    <label for="inputPassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="inputPassword">
+  </div>
+  <div class="col-11">
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-        <label class="form-check-label" for="inlineRadio1">Admin</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-        <label class="form-check-label" for="inlineRadio2">User</label>
-      </div>
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+      <label class="form-check-label" for="inlineRadio1">Admin</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+      <label class="form-check-label" for="inlineRadio2">User</label>
     </div>
   </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Sign in</button>
+  <div class="col-11">
+    <button type="submit" class="btn btn-primary">Register</button>
   </div>
 </form>
+</div>
+
 
 <!-- <div class="row justify-content-center">
 <div class="card my-5 col-md-8">
