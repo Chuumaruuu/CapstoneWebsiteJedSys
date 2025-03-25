@@ -38,11 +38,6 @@ class Home extends BaseController
         return view('content');
     }
 
-    public function registration(): string
-    {
-        return view('registration');
-    }
-
     public function database()
     {
         $u = new UserModel();
