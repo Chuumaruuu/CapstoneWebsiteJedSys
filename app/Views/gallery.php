@@ -1,6 +1,7 @@
 <?= $this->extend('layout/main_layout') ?>
 <?= $this->section('pageContents') ?>
-<main class="container py-5">
+<main>
+<div class="container py-5">
 <p class ="lead mb-4 fw-bold display-1 text-center">In-Game Asset Gallery</p>
 <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 690px;">
     <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
@@ -84,5 +85,6 @@
       </div>
     </div>
   </div>
+</div>
 </main>
 <?= $this->endSection('pageContents') ?>
