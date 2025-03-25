@@ -49,7 +49,9 @@
   </div>
   <div class="col-11">
     <button type="submit" class="btn btn-primary">Register</button>
+    <a href="<?=base_url().'login' ?>" class="mx-3">Already have an account? Login</a>
   </div>
+
 </form>
 </div>
 </body>
