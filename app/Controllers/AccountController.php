@@ -34,13 +34,46 @@ class AccountController extends BaseController
             'Contactno'=>$this->request->getVar('Contactno'),
             'Password'=>password_hash($this->request->getVar('Password'), PASSWORD_DEFAULT),
             'Accesslevel'=>'User',
-            'Status'=>'Active'
+            'Status'=>'active'
         ];
         $u->save($data);
-        return redirect()->to('/login');
+        return redirect()->to(base_url('login'));
     }else{
         $data['validation'] = $this->validator;
         echo view('registration', $data);
     }
+    }
+    public function verify()
+    {
+        $session = session();
+        $u = new UserModel();
+        $email = $this->request->getVar('Email');
+        $password = $this->request->getVar('Password');
+        $data = $u->where('Email', $email)->first();
+        if($data){
+            $pass = $data['Password'];
+            $authenticatePassword = password_verify($password, $pass);
+            if($authenticatePassword){
+                if($data['Status']=='active'):
+                $session_data =[
+                    'ID'=>$data['ID'],
+                    'Firstname'=>$data['Firstname'],
+                    'Email'=>$data['Email'],
+                    'isLoggedIn'=> TRUE
+                ];
+                $session->set($session_data);
+                return redirect()->to(base_url('home'));
+                else:
+                    $session->setFlashdata('error', 'Account is not active. Please contact the administrator.');
+                    return redirect()->to(base_url('login'));
+                endif;
+            }else{
+                $session->setFlashdata('error', 'Invalid Password. Please Try Again.');
+                return redirect()->to(base_url('login'));
+            }
+        }else{
+            $session->setFlashdata('error', 'Email not found. Please Register First.');
+            return redirect()->to(base_url('login'));
+        }
     }
 }

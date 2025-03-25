@@ -23,7 +23,6 @@
             <img src="<?php echo IMG.'476497323_495082740320861_707671110755780640_n.jpg'; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small" style="">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><hr class="dropdown-divider"></li>

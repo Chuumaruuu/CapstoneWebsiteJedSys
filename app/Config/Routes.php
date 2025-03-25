@@ -16,4 +16,5 @@ $routes->get('/content', 'Home::content');
 // $routes->get('/store','AccountController::store');
 $routes->match(['get', 'post'], '/registration', 'AccountController::registration');
 $routes->match(['get', 'post'], '/store', 'AccountController::store');
+$routes->match(['get', 'post'], '/verify', 'AccountController::verify');
 $routes->get('/database', 'Home::database');
