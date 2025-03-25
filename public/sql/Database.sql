@@ -1,13 +1,14 @@
+--Run the following queries to create the database
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 CREATE DATABASE admin;
-
+--Select Database first then run the following queries
 CREATE TABLE `users` (
   `ID` int(11) NOT NULL,
   `Firstname` varchar(50) DEFAULT NULL,
-  `Middletname` varchar(50) DEFAULT NULL,
+  `Middlename` varchar(50) DEFAULT NULL,
   `Lastname` varchar(50) DEFAULT NULL,
   `Contactno` varchar(20) DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
