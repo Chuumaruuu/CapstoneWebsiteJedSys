@@ -33,7 +33,7 @@
     </div>
     <div class="col">
         <div class="card rounded-4">
-          <img src="<?php echo IMG.'472833236_913016031025682_3154287399021606900_n.jpg'; ?>" class="card-img-top p-2 rounded-4" alt="JNC" height="259px">
+          <img src="<?php echo IMG.'472833236_913016031025682_3154287399021606900_n.jpg'; ?>" class="card-img-top p-2 rounded-4" alt="JNC">
           <div class="card-body">
             <h5 class="card-title">Jon Nathaniel Castañeda</h5>
             <p class="card-text">Lead Developer</p>
@@ -42,7 +42,7 @@
     </div>
     <div class="col">
         <div class="card rounded-4">
-          <img src="<?php echo IMG.'454235249_10225625648456783_3047283924182056320_n.jpg'; ?>" class="card-img-top p-2 rounded-4" alt="LJM" height="259px">
+          <img src="<?php echo IMG.'454235249_10225625648456783_3047283924182056320_n.jpg'; ?>" class="card-img-top p-2 rounded-4" alt="LJM">
           <div class="card-body">
             <h5 class="card-title">Luis Javier Montinola</h5>
             <p class="card-text">Web Developer</p>
@@ -51,7 +51,7 @@
     </div>
     <div class="col">
         <div class="card rounded-4">
-          <img src="<?php echo IMG.'481674085_1354612385578793_2475199882742616598_n.jpg'; ?>" class="card-img-top p-2 rounded-4" alt="JLT" height="259px">
+          <img src="<?php echo IMG.'481674085_1354612385578793_2475199882742616598_n.jpg'; ?>" class="card-img-top p-2 rounded-4" alt="JLT">
           <div class="card-body">
             <h5 class="card-title">Jose Loranzo Tuazon</h5>
             <p class="card-text">QA Specialist</p>

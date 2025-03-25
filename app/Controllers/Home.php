@@ -6,7 +6,12 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('landing');
+        $session = session();
+        if($session->has('Firstname')){
+            return view('landing');
+        }else{
+            return view('login');
+        }
     }
 
     public function landing(): string
@@ -21,16 +26,31 @@ class Home extends BaseController
 
     public function about(): string
     {
-        return view('about');
+        $session = session();
+        if($session->has('Firstname')){
+            return view('about');
+        }else{
+            return view('login');
+        }
     }
 
     public function gallery(): string
     {
-        return view('gallery');
+        $session = session();
+        if($session->has('Firstname')){
+            return view('gallery');
+        }else{
+            return view('login');
+        }
     }
     public function gameplay(): string
     {
-        return view('gameplay');
+        $session = session();
+        if($session->has('Firstname')){
+            return view('gameplay');
+        }else{
+            return view('login');
+        }
     }
 
     public function content(): string

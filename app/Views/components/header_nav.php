@@ -18,21 +18,25 @@
                 <a href="<?=base_url().'gameplay'?>" class="nav-link px-3 link-body-emphasis fs-4 hvr-hang">Gameplay</a>
             </li>
         </ul>
-        <div class="dropdown text-end me-5">
-          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="<?php echo IMG.'476497323_495082740320861_707671110755780640_n.jpg'; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small" style="">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
-        </div>
-        <div class="text-end">
-            <a href="<?=base_url().'login' ?>" class="btn btn-dark me-2 fs-4">Login</a>
-        </div>
+        <?php if (isset($_SESSION['ID'])): ?>
+            <!-- Show dropdown if session is active -->
+            <div class="dropdown text-end me-5">
+              <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="<?php echo IMG.'476497323_495082740320861_707671110755780640_n.jpg'; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
+              </a>
+              <ul class="dropdown-menu text-small" style="">
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="<?=base_url().'logout' ?>">Sign out</a></li>
+              </ul>
+            </div>
+        <?php else: ?>
+            <!-- Show login button if no session is active -->
+            <div class="text-end">
+                <a href="<?=base_url().'login' ?>" class="btn btn-dark me-2 fs-4">Login</a>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
 </header>
