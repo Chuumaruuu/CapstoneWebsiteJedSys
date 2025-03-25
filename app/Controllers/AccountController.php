@@ -4,6 +4,16 @@ namespace App\Controllers;
 use App\Models\UserModel;
 class AccountController extends BaseController
 {
+
+    public function index()
+    {
+        $session = session();
+        if($session->has('Firstname')){
+            return redirect()->to(base_url());
+        }else{
+            return view(base_url('login'));
+        }
+    }
     public function registration()
     {
         helper(['form']);
@@ -62,7 +72,7 @@ class AccountController extends BaseController
                     'isLoggedIn'=> TRUE
                 ];
                 $session->set($session_data);
-                return redirect()->to(base_url('home'));
+                return redirect()->to(base_url());
                 else:
                     $session->setFlashdata('error', 'Account is not active. Please contact the administrator.');
                     return redirect()->to(base_url('login'));
@@ -75,5 +85,11 @@ class AccountController extends BaseController
             $session->setFlashdata('error', 'Email not found. Please Register First.');
             return redirect()->to(base_url('login'));
         }
+    }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to(base_url('login'));
     }
 }
