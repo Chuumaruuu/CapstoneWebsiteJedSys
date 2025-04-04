@@ -1,4 +1,4 @@
-<?= $this->extend('layout/main_layout') ?>
+<?= $this->extend('layout/sign_up_layout') ?>
 <?= $this->section('pageContents') ?>
 <main>
 <div class="container my-5" data-bs-theme="light">

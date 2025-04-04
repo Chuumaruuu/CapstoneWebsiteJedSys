@@ -66,10 +66,14 @@ class AccountController extends BaseController
             if($authenticatePassword){
                 if($data['Status']=='active'):
                 $session_data =[
-                    'ID'=>$data['ID'],
-                    'Firstname'=>$data['Firstname'],
-                    'Email'=>$data['Email'],
-                    'isLoggedIn'=> TRUE
+                    'ID' => $data['ID'],
+                    'Firstname' => $data['Firstname'],
+                    'Middlename' => $data['Middlename'],
+                    'Lastname' => $data['Lastname'],
+                    'Email' => $data['Email'],
+                    'Contactno' => $data['Contactno'],
+                    'Birthdate' => $data['Birthdate'],
+                    'isLoggedIn' => TRUE
                 ];
                 $session->set($session_data);
                 return redirect()->to(base_url());
