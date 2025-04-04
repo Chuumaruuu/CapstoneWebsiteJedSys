@@ -20,3 +20,4 @@ $routes->match(['get', 'post'], '/verify', 'AccountController::verify');
 $routes->get('/login', 'AccountController::index');
 $routes->get('/logout', 'AccountController::logout');
 $routes->get('/database', 'Home::database');
+$routes->post('/updateProfile', 'AccountController::updateProfile');

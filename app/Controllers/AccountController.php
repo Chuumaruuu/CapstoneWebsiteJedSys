@@ -90,6 +90,47 @@ class AccountController extends BaseController
             return redirect()->to(base_url('login'));
         }
     }
+    public function updateProfile()
+    {
+        helper(['form']);
+        $session = session();
+        $u = new UserModel();
+
+        // Validation rules
+        $rules = [
+            'Firstname' => 'required|min_length[3]|max_length[50]',
+            'Lastname' => 'required|min_length[3]|max_length[50]',
+            'Email' => 'required|valid_email',
+            'Contactno' => 'required|numeric|min_length[10]|max_length[15]',
+            'Birthdate' => 'required|valid_date'
+        ];
+
+        // Check validation
+        if (!$this->validate($rules)) {
+            return redirect()->back()->with('errors', $this->validator->getErrors());
+        }
+
+        // Prepare data to update
+        $data = [
+            'Firstname' => $this->request->getPost('Firstname'),
+            'Middlename' => $this->request->getPost('Middlename'),
+            'Lastname' => $this->request->getPost('Lastname'),
+            'Email' => $this->request->getPost('Email'),
+            'Contactno' => $this->request->getPost('Contactno'),
+            'Birthdate' => $this->request->getPost('Birthdate')
+        ];
+
+        // Update database
+        $userId = $session->get('ID');
+        $u->update($userId, $data);
+
+        // Update session data
+        foreach ($data as $key => $value) {
+            $session->set($key, $value);
+        }
+
+        return redirect()->to(base_url())->with('success', 'Profile updated successfully!');
+    }
 
     public function logout()
     {

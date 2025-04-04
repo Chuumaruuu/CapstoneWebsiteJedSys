@@ -68,15 +68,73 @@
                 <strong>Contact Number:</strong> <?= $_SESSION['Contactno']; ?>
               </li>
               <li class="list-group-item">
-                <strong>Birthdate:</strong> <?= $_SESSION['Birthdate']; ?>
+                <strong>Birthdate:</strong> <?php if (isset($_SESSION['Birthdate'])) {
+                  $date = date_create($_SESSION['Birthdate']);
+                    echo date_format($date, "F j, Y");
+                  } else {
+                    echo "Birthdate not provided";
+                  } ?>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal" data-bs-dismiss="modal">Edit</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Profile Modal -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form action="<?=base_url().'updateProfile' ?>" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-4 text-center">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                   alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            </div>
+            <div class="col-lg-8">
+              <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="Firstname" name="Firstname" value="<?= $_SESSION['Firstname']; ?>" required>
+              </div>
+              <div class="mb-3">
+                <label for="middlename" class="form-label">Middle Name</label>
+                <input type="text" class="form-control" id="Middlename" name="Middlename" value="<?= $_SESSION['Middlename']; ?>">
+              </div>
+              <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="Lastname" name="Lastname" value="<?= $_SESSION['Lastname']; ?>" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" value="<?= $_SESSION['Email']; ?>" required>
+              </div>
+              <div class="mb-3">
+                <label for="contactno" class="form-label">Contact Number</label>
+                <input type="text" class="form-control" id="Contactno" name="Contactno" value="<?= $_SESSION['Contactno']; ?>" required>
+              </div>
+              <div class="mb-3">
+                <label for="birthdate" class="form-label">Birthdate</label>
+                <input type="date" class="form-control" id="Birthdate" name="Birthdate" value="<?= $_SESSION['Birthdate']; ?>" required>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Save Changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#userProfileModal">Cancel</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
