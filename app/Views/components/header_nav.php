@@ -17,12 +17,19 @@
             <li class="nav-item ms-3">
                 <a href="<?=base_url().'gameplay'?>" class="nav-link px-3 link-body-emphasis fs-4 hvr-hang">Gameplay</a>
             </li>
+            <li class="nav-item ms-3">
+                <a href="<?=base_url().'forum'?>" class="nav-link px-3 link-body-emphasis fs-4 hvr-hang">Forum</a>
+            </li>
         </ul>
         <?php if (isset($_SESSION['ID'])): ?>
+          <?php $profileImage = !empty($_SESSION['Image'])
+            ? base_url().'uploads/avatars/'.$_SESSION['Image']
+              : IMG.'Default-Profile.jpg';
+          ?>
             <!-- Show dropdown if session is active -->
             <div class="dropdown text-end me-5">
               <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="<?php echo IMG.'476497323_495082740320861_707671110755780640_n.jpg'; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
+                <img src="<?= $profileImage ?>" alt="mdo" width="32" height="32" class="rounded-circle">
               </a>
               <ul class="dropdown-menu text-small" style="">
                 <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -52,8 +59,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-lg-4 text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+          <img src="<?= $profileImage ?>" alt="mdo" class="rounded-circle img-fluid" style="width: 150px;">
             <h5 class="my-3"><?= $_SESSION['Firstname'] . " " . $_SESSION['Lastname']; ?></h5>
           </div>
           <div class="col-lg-8">
@@ -91,7 +97,7 @@
 <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <form action="<?=base_url().'updateProfile' ?>" method="POST">
+      <form action="<?=base_url().'updateProfile' ?>" method="POST" enctype="multipart/form-data">
         <div class="modal-header">
           <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -99,8 +105,7 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-lg-4 text-center">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                   alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            <img src="<?= $profileImage ?>" alt="mdo" class="rounded-circle img-fluid" style="width: 150px;">
             </div>
             <div class="col-lg-8">
               <div class="mb-3">
@@ -127,6 +132,14 @@
                 <label for="birthdate" class="form-label">Birthdate</label>
                 <input type="date" class="form-control" id="Birthdate" name="Birthdate" value="<?= $_SESSION['Birthdate']; ?>" required>
               </div>
+              <div class="mb-3">
+                <label for="ProfileImage" class="form-label fw-semibold">Change Picture</label>
+                <input type="file" class="form-control" id="ProfileImage" name="ProfileImage" accept="image/png,image/jpeg,image/jpg">
+                <small class="text-muted d-block">Max 2MB. JPG or PNG.</small>
+              </div>
+              <?php if (!empty($_SESSION['Image'])): ?>
+                <input type="hidden" name="ExistingImage" value="<?= esc($_SESSION['Image']) ?>">
+              <?php endif; ?>
             </div>
           </div>
         </div>

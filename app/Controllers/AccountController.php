@@ -73,6 +73,7 @@ class AccountController extends BaseController
                     'Email' => $data['Email'],
                     'Contactno' => $data['Contactno'],
                     'Birthdate' => $data['Birthdate'],
+                    'Image' => $data['Image'] ?? null,
                     'isLoggedIn' => TRUE
                 ];
                 $session->set($session_data);
@@ -92,7 +93,7 @@ class AccountController extends BaseController
     }
     public function updateProfile()
     {
-        helper(['form']);
+        helper(['form', 'filesystem']);
         $session = session();
         $u = new UserModel();
 
@@ -104,6 +105,12 @@ class AccountController extends BaseController
             'Contactno' => 'required|numeric|min_length[10]|max_length[15]',
             'Birthdate' => 'required|valid_date'
         ];
+
+        // Add profile image validation if uploaded
+        $profileImage = $this->request->getFile('ProfileImage');
+        if ($profileImage && $profileImage->isValid() && !$profileImage->hasMoved()) {
+            $rules['ProfileImage'] = 'uploaded[ProfileImage]|max_size[ProfileImage,2048]|is_image[ProfileImage]|mime_in[ProfileImage,image/jpg,image/jpeg,image/png]';
+        }
 
         // Check validation
         if (!$this->validate($rules)) {
@@ -119,6 +126,31 @@ class AccountController extends BaseController
             'Contactno' => $this->request->getPost('Contactno'),
             'Birthdate' => $this->request->getPost('Birthdate')
         ];
+
+        // Handle profile image upload
+        if ($profileImage && $profileImage->isValid() && !$profileImage->hasMoved()) {
+            // Create uploads/avatars directory if it doesn't exist
+            $uploadPath = FCPATH . 'uploads/avatars/';
+            if (!is_dir($uploadPath)) {
+                mkdir($uploadPath, 0755, true);
+            }
+
+            // Generate unique filename
+            $fileName = $session->get('ID') . '_' . time() . '.' . $profileImage->getExtension();
+            
+            // Delete old image if exists
+            $existingImage = $this->request->getPost('ExistingImage');
+            if ($existingImage && file_exists($uploadPath . $existingImage)) {
+                unlink($uploadPath . $existingImage);
+            }
+
+            // Move uploaded file
+            if ($profileImage->move($uploadPath, $fileName)) {
+                $data['Image'] = $fileName;
+            } else {
+                return redirect()->back()->with('error', 'Failed to upload profile image.');
+            }
+        }
 
         // Update database
         $userId = $session->get('ID');
