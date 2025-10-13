@@ -3,6 +3,42 @@
 <main>
 <div class="container py-5">
 <p class ="lead mb-4 fw-bold display-1 text-center">In-Game Asset Gallery</p>
+<div class="row mb-5">
+    <div class="col-md-6 d-flex justify-content-center">
+        <div class="sketchfab-embed-wrapper" style="width: 100%; max-width: 500px; height: 600px;">
+            <iframe title="Male Character - Sample" 
+                    frameborder="0" 
+                    allowfullscreen 
+                    mozallowfullscreen="true" 
+                    webkitallowfullscreen="true" 
+                    allow="autoplay; fullscreen; xr-spatial-tracking" 
+                    xr-spatial-tracking 
+                    execution-while-out-of-viewport 
+                    execution-while-not-rendered 
+                    web-share 
+                    src="https://sketchfab.com/models/26ef097796a54f21bbcb9e6f287945a1/embed?autostart=1&transparent=1"
+                    style="width: 100%; height: 100%; border-radius: 8px;">
+            </iframe>
+        </div>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center">
+        <div class="sketchfab-embed-wrapper" style="width: 100%; max-width: 500px; height: 600px;">
+            <iframe title="Female Character - Sample" 
+                    frameborder="0" 
+                    allowfullscreen 
+                    mozallowfullscreen="true" 
+                    webkitallowfullscreen="true" 
+                    allow="autoplay; fullscreen; xr-spatial-tracking" 
+                    xr-spatial-tracking 
+                    execution-while-out-of-viewport 
+                    execution-while-not-rendered 
+                    web-share 
+                    src="https://sketchfab.com/models/8891761c08ef4a4bac937c3afd79c5d6/embed?autostart=1&transparent=1"
+                    style="width: 100%; height: 100%; border-radius: 8px;">
+            </iframe>
+        </div>
+    </div>
+</div>
 <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 690px;">
     <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
       <div class="card">
