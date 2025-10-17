@@ -22,7 +22,7 @@ if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
 
 /*
  *---------------------------------------------------------------
- * asd SET THE CURRENT DIRECTORY
+ * asd SET THE CURRENT DIRECTORY asd
  *---------------------------------------------------------------
  */ 
 
