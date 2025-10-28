@@ -53,6 +53,16 @@ class Home extends BaseController
         }
     }
 
+    public function forum(): string
+    {
+        $session = session();
+        if ($session->has('Firstname')) {
+            return view('forum');
+        } else {
+            return view('login');
+        }
+    }
+
     public function content(): string
     {
         return view('content');

@@ -35,13 +35,38 @@
 
 ## Overview
 
-**Jed's System Analysis and Design ** is a team composed of IT students working to create web pages in accordance to their requirements in their subject "Project Management"
+**Jed's System Analysis and Design ** is a team composed of IT students working to create web pages in accordance to their requirements in their subject "System Integration and Architecture"
 
 ## Members
-<a href="https://github.com/Laezi12"><img src="https://avatars.githubusercontent.com/u/86827446?v=4" alt="Castañeda" width="130" height="130">
-<a href="https://github.com/Chuumaruuu"><img src="https://avatars.githubusercontent.com/u/144074094?v=4" alt="Gabinete" width="130" height="130">
-<a href="https://github.com/Krus0917"><img src="https://avatars.githubusercontent.com/u/135810632?v=4" alt="Montinola" width="130" height="130">
-<a href="https://github.com/anon321123"><img src="https://avatars.githubusercontent.com/u/144293822?v=4" alt="Tuazon" width="130" height="130">
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Laezi12">
+        <img src="https://avatars.githubusercontent.com/u/86827446?v=4" alt="Castañeda" width="130" height="130"></a><br/>
+        <p>Castañeda</p>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Chuumaruuu">
+        <img src="https://avatars.githubusercontent.com/u/144074094?v=4" alt="Gabinete" width="130" height="130"></a><br/>
+        <p>Gabinete</p>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Krus0917">
+        <img src="https://avatars.githubusercontent.com/u/135810632?v=4" alt="Montinola" width="130" height="130"></a><br/>
+        <p>Montinola</p>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/anon321123">
+        <img src="https://avatars.githubusercontent.com/u/144293822?v=4" alt="Tuazon" width="130" height="130"></a><br/>
+        <p>Tuazon</p>
+      </a>
+    </td>
+  </tr>
+</table>
+
 
 ## Technology
 

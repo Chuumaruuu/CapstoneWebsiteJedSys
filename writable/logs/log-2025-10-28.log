@@ -1,0 +1,254 @@
+CRITICAL - 2025-10-28 14:01:09 --> mysqli_sql_exception: Unknown database 'reviews_db'
+[Method: GET, Route: forum]
+in APPPATH\Views\load.php on line 8.
+ 1 APPPATH\Views\load.php(8): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'reviews_db')
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\load.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(487): CodeIgniter\View\View->render('load', null, true)
+ 5 APPPATH\Views\forum.php(42): CodeIgniter\View\View->include('load')
+ 6 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\forum.php')
+ 7 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('forum', [], true)
+ 9 APPPATH\Controllers\Home.php(60): view('forum')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->forum()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-10-28 14:26:57 --> mysqli_sql_exception: Table 'admin.reviews' doesn't exist in D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Views\load.php(5): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\View\View.php(234): include('D:\\xampp\\htdocs...')
+#8 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#9 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\View\View.php(487): CodeIgniter\View\View->render('load', NULL, true)
+#10 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Views\forum.php(41): CodeIgniter\View\View->include('load')
+#11 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\View\View.php(234): include('D:\\xampp\\htdocs...')
+#12 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#13 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Common.php(1171): CodeIgniter\View\View->render('forum', Array, true)
+#14 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(60): view('forum')
+#15 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(933): App\Controllers\Home->forum()
+#16 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#17 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#18 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#19 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#20 D:\xampp\htdocs\CapstoneWebsiteJedSys\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#21 {main}
+CRITICAL - 2025-10-28 14:26:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'admin.reviews' doesn't exist
+[Method: GET, Route: forum]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Views\load.php(5): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\load.php')
+ 6 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\View\View.php(487): CodeIgniter\View\View->render('load', null, true)
+ 8 APPPATH\Views\forum.php(41): CodeIgniter\View\View->include('load')
+ 9 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\forum.php')
+10 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+11 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('forum', [], true)
+12 APPPATH\Controllers\Home.php(60): view('forum')
+13 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->forum()
+14 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+15 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+16 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+17 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+18 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-28 14:26:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'admin.reviews' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Views\load.php(5): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\load.php')
+ 8 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 9 SYSTEMPATH\View\View.php(487): CodeIgniter\View\View->render('load', null, true)
+10 APPPATH\Views\forum.php(41): CodeIgniter\View\View->include('load')
+11 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\forum.php')
+12 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('forum', [], true)
+14 APPPATH\Controllers\Home.php(60): view('forum')
+15 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->forum()
+16 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+17 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+18 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+19 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+20 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-28 14:26:57 --> [Caused by] mysqli_sql_exception: Table 'admin.reviews' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Views\load.php(5): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\load.php')
+ 9 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\View\View.php(487): CodeIgniter\View\View->render('load', null, true)
+11 APPPATH\Views\forum.php(41): CodeIgniter\View\View->include('load')
+12 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\forum.php')
+13 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('forum', [], true)
+15 APPPATH\Controllers\Home.php(60): view('forum')
+16 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->forum()
+17 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+18 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-10-28 14:27:11 --> mysqli_sql_exception: Table 'admin.reviews' doesn't exist in D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Views\load.php(5): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\View\View.php(234): include('D:\\xampp\\htdocs...')
+#8 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#9 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\View\View.php(487): CodeIgniter\View\View->render('load', NULL, true)
+#10 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Views\forum.php(41): CodeIgniter\View\View->include('load')
+#11 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\View\View.php(234): include('D:\\xampp\\htdocs...')
+#12 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#13 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Common.php(1171): CodeIgniter\View\View->render('forum', Array, true)
+#14 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(60): view('forum')
+#15 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(933): App\Controllers\Home->forum()
+#16 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#17 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#18 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#19 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#20 D:\xampp\htdocs\CapstoneWebsiteJedSys\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#21 {main}
+CRITICAL - 2025-10-28 14:27:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'admin.reviews' doesn't exist
+[Method: GET, Route: forum]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Views\load.php(5): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\load.php')
+ 6 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\View\View.php(487): CodeIgniter\View\View->render('load', null, true)
+ 8 APPPATH\Views\forum.php(41): CodeIgniter\View\View->include('load')
+ 9 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\forum.php')
+10 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+11 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('forum', [], true)
+12 APPPATH\Controllers\Home.php(60): view('forum')
+13 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->forum()
+14 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+15 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+16 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+17 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+18 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-28 14:27:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'admin.reviews' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Views\load.php(5): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\load.php')
+ 8 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 9 SYSTEMPATH\View\View.php(487): CodeIgniter\View\View->render('load', null, true)
+10 APPPATH\Views\forum.php(41): CodeIgniter\View\View->include('load')
+11 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\forum.php')
+12 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('forum', [], true)
+14 APPPATH\Controllers\Home.php(60): view('forum')
+15 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->forum()
+16 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+17 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+18 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+19 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+20 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-28 14:27:11 --> [Caused by] mysqli_sql_exception: Table 'admin.reviews' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `reviews`
+ORDER BY `created_at` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Views\load.php(5): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\load.php')
+ 9 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\View\View.php(487): CodeIgniter\View\View->render('load', null, true)
+11 APPPATH\Views\forum.php(41): CodeIgniter\View\View->include('load')
+12 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\CapstoneWebsiteJedSys\\app\\Views\\forum.php')
+13 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('forum', [], true)
+15 APPPATH\Controllers\Home.php(60): view('forum')
+16 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->forum()
+17 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+18 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-28 14:33:35 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "http://localhost/CapstoneWebsiteJedSys/login.php"
+[Method: GET, Route: login]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('http://localhost/CapstoneWebsiteJedSys/login.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('http://localhost/CapstoneWebsiteJedSys/login', [], true)
+ 3 APPPATH\Controllers\AccountController.php(14): view('http://localhost/CapstoneWebsiteJedSys/login')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AccountController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AccountController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-28 14:33:42 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "http://localhost/CapstoneWebsiteJedSys/login.php"
+[Method: GET, Route: login]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('http://localhost/CapstoneWebsiteJedSys/login.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('http://localhost/CapstoneWebsiteJedSys/login', [], true)
+ 3 APPPATH\Controllers\AccountController.php(14): view('http://localhost/CapstoneWebsiteJedSys/login')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AccountController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AccountController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
