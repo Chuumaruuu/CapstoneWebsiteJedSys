@@ -1,0 +1,174 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+}
+
+
+/* Main content */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Review Form */
+.review-section h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.stars input {
+  display: none;
+}
+
+.stars label {
+  font-size: 26px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label {
+  color: #f5c518;
+}
+
+textarea, input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-size: 1em;
+}
+
+button {
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #444;
+}
+
+/* Rating Summary */
+.rating-summary {
+  margin-bottom: 20px;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.star-label {
+  width: 40px;
+  text-align: right;
+}
+
+.bar {
+  flex: 1;
+  background: #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 12px;
+}
+
+.fill {
+  background: #f5c518;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.percent {
+  width: 40px;
+  text-align: left;
+}
+
+/* Reviews */
+.review {
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review .stars {
+  color: #f5c518;
+}
+
+.review p {
+  margin: 8px 0;
+}
+/* Average Rating Summary */
+.rating-overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.average-rating {
+  text-align: center;
+  flex: 1;
+}
+
+.average-rating .avg-number {
+  font-size: 3em;
+  font-weight: bold;
+  color: #f5c518;
+}
+
+.average-rating .avg-stars {
+  font-size: 1.6em;
+  color: #f5c518;
+}
+
+.average-rating p {
+  margin-top: 5px;
+  color: #555;
+}
+
+.bars-section {
+  flex: 2;
+  min-width: 300px;
+}
