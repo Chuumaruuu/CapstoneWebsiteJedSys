@@ -1,4 +1,4 @@
-<header class="bg-dark p-2 mb-2" data-bs-theme="dark">
+<header class="bg-dark p-2 " data-bs-theme="dark">
 <div class="container-fluid">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="<?=base_url() ?>" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">

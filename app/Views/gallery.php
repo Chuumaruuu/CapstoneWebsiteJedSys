@@ -3,7 +3,7 @@
 <main>
 <div class="container py-5">
 <p class ="lead mb-4 fw-bold display-1 text-center">In-Game Asset Gallery</p>
-<div class="row mb-5">
+<!-- <div class="row mb-5">
     <div class="col-md-6 d-flex justify-content-center">
         <div class="sketchfab-embed-wrapper" style="width: 100%; max-width: 500px; height: 600px;">
             <iframe title="Male Character - Sample" 
@@ -38,7 +38,7 @@
             </iframe>
         </div>
     </div>
-</div>
+</div> -->
 <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 690px;">
     <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
       <div class="card">

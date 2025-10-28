@@ -1,33 +1,38 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "reviews_db";
+use App\Models\ReviewModel;
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+$model = new ReviewModel();
+$reviews = $model->orderBy('created_at', 'DESC')->findAll();
+
+// determine if current user is admin to show delete buttons
+$session = session();
+$isAdmin = false;
+if ($session->has('ID')) {
+  $uModel = new \App\Models\UserModel();
+  $user = $uModel->find($session->get('ID'));
+  if ($user) {
+    $access = is_array($user) ? ($user['Accesslevel'] ?? null) : ($user->Accesslevel ?? null);
+    if (! empty($access) && strtolower($access) === 'admin') {
+      $isAdmin = true;
+    }
+  }
 }
 
-// Fetch all reviews
-$reviews = $conn->query("SELECT * FROM reviews ORDER BY created_at DESC");
-
-// Get rating counts
-$countQuery = $conn->query("SELECT rating, COUNT(*) as count FROM reviews GROUP BY rating");
 $counts = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0];
 $total = 0;
 $totalScore = 0;
 
-while ($row = $countQuery->fetch_assoc()) {
-  $counts[$row['rating']] = $row['count'];
-  $total += $row['count'];
-  $totalScore += $row['rating'] * $row['count'];
+foreach ($reviews as $r) {
+    $rating = (int) $r['rating'];
+    if (isset($counts[$rating])) {
+        $counts[$rating]++;
+    }
+    $total++;
+    $totalScore += $rating;
 }
 
 $average = $total > 0 ? round($totalScore / $total, 1) : 0;
 
-// Function to calculate percentage for each star
 function percentage($count, $total) {
   return $total > 0 ? round(($count / $total) * 100) : 0;
 }
@@ -36,10 +41,10 @@ function percentage($count, $total) {
 <!-- Rating summary -->
 <div class="rating-summary">
   <div class="rating-overview">
-    <div class="average-rating">
-      <span class="avg-number"><?php echo $average; ?></span>
+    <div class="average-rating pb-3">
       <div class="avg-stars">
         <?php
+        echo $average . "  ";
         $fullStars = floor($average);
         $halfStar = ($average - $fullStars) >= 0.5 ? 1 : 0;
         for ($i = 1; $i <= 5; $i++) {
@@ -49,43 +54,37 @@ function percentage($count, $total) {
         }
         ?>
       </div>
-      <p><?php echo $total; ?> Reviews</p>
+      <p><?php echo $total; ?> Reviews in Total</p>
     </div>
-
-    <div class="bars-section">
-      <?php for ($i = 5; $i >= 1; $i--): ?>
-        <div class="bar-row">
-          <span class="star-label"><?php echo $i; ?> ★</span>
-          <div class="bar">
-            <div class="fill" style="width: <?php echo percentage($counts[$i], $total); ?>%;"></div>
-          </div>
-        </div>
-      <?php endfor; ?>
-    </div>
-  </div>
-</div>
 
 <hr>
 
 <!-- Reviews list -->
 <?php
-if ($reviews->num_rows > 0) {
-  while ($row = $reviews->fetch_assoc()) {
+if (! empty($reviews)) {
+  foreach ($reviews as $row) {
     $date = date("Y-m-d", strtotime($row['created_at'])); // Format date only
 
-    echo "<div class='review'>";
-    echo "<div class='review-header'>";
-    echo "<strong>" . htmlspecialchars($row['username']) . "</strong> ";
-    echo "<span class='stars'>" . str_repeat("★", $row['rating']) . str_repeat("☆", 5 - $row['rating']) . "</span>";
-    echo "</div>";
+  echo "<div class='review my-5'>";
+  echo "<div class='review-header d-flex align-items-center my-2'>";
+  // profile image (if available) - use uploads/avatars/<filename> or default image
+  $imgSrc = !empty($row['image']) ? base_url('uploads/avatars/' . $row['image']) : IMG . 'Default-Profile.jpg';
+  echo "<img src='" . esc($imgSrc) . "' alt='avatar' class='rounded-circle me-2' style='width:40px;height:40px;object-fit:cover;'>";
+  echo "<strong class='me-2'>" . htmlspecialchars($row['username']) . "</strong> ";
+  echo "</div>";
+  echo "<span class='stars'>" . str_repeat("★", $row['rating']) . str_repeat("☆", 5 - $row['rating']) . "</span>";
     echo "<p>" . htmlspecialchars($row['comment']) . "</p>";
-    echo "<small>$date</small>";  // 👈 Only date shown here
+    echo "<p>$date</p>";  // Only date shown here
+      // if admin, show delete button form
+  if ($isAdmin) {
+    echo "<form method='post' action='" . base_url('reviews/delete/' . $row['id']) . "' class='d-grid gap-2 d-md-flex justify-content-md-end' onsubmit=\"return confirm('Delete this review?');\">";
+    echo csrf_field();
+    echo "<button type='submit' class='btn btn-sm btn-danger me-md-2'>Delete</button>";
+    echo "</form>";
+  }
     echo "</div>";
   }
 } else {
   echo "<p>No reviews yet.</p>";
 }
-
-
-$conn->close();
 ?>
