@@ -32,7 +32,6 @@
                 <img src="<?= $profileImage ?>" alt="mdo" width="32" height="32" class="rounded-circle">
               </a>
               <ul class="dropdown-menu text-small" style="">
-                <li><a class="dropdown-item" href="#">Settings</a></li>
                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#userProfileModal">Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="<?=base_url().'logout' ?>">Sign out</a></li>
@@ -131,6 +130,14 @@
               <div class="mb-3">
                 <label for="birthdate" class="form-label">Birthdate</label>
                 <input type="date" class="form-control" id="Birthdate" name="Birthdate" value="<?= $_SESSION['Birthdate']; ?>" required>
+              </div>
+              <div class="mb-3">
+                <label for="NewPassword" class="form-label">Change Password</label>
+                <input type="password" class="form-control" id="NewPassword" name="NewPassword" placeholder="Change password">
+              </div>
+              <div class="mb-3">
+                <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm new password">
               </div>
               <div class="mb-3">
                 <label for="ProfileImage" class="form-label fw-semibold">Change Picture</label>

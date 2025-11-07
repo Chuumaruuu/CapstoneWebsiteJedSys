@@ -112,6 +112,13 @@ class AccountController extends BaseController
             $rules['ProfileImage'] = 'uploaded[ProfileImage]|max_size[ProfileImage,2048]|is_image[ProfileImage]|mime_in[ProfileImage,image/jpg,image/jpeg,image/png]';
         }
 
+        // If user entered a new password, add validation rules for it
+        $newPassword = $this->request->getPost('NewPassword');
+        if (! empty($newPassword)) {
+            $rules['NewPassword'] = 'min_length[8]|max_length[255]';
+            $rules['ConfirmPassword'] = 'matches[NewPassword]';
+        }
+
         // Check validation
         if (!$this->validate($rules)) {
             return redirect()->back()->with('errors', $this->validator->getErrors());
@@ -154,10 +161,20 @@ class AccountController extends BaseController
 
         // Update database
         $userId = $session->get('ID');
+
+        // If password change requested, hash and include in update
+        if (! empty($newPassword)) {
+            $data['Password'] = password_hash($newPassword, PASSWORD_DEFAULT);
+        }
+
         $u->update($userId, $data);
 
         // Update session data
         foreach ($data as $key => $value) {
+            // never store raw password in session
+            if ($key === 'Password') {
+                continue;
+            }
             $session->set($key, $value);
         }
 
