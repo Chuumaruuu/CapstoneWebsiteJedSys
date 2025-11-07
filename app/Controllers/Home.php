@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\UserModel;
+use App\Models\GalleryModel;
 class Home extends BaseController
 {
     public function index(): string
@@ -38,7 +39,9 @@ class Home extends BaseController
     {
         $session = session();
         if($session->has('Firstname')){
-            return view('gallery');
+            $g = new GalleryModel();
+            $data['gallery'] = $g->orderBy('ID','DESC')->findAll();
+            return view('gallery', $data);
         }else{
             return view('login');
         }
