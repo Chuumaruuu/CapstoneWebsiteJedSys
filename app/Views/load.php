@@ -75,12 +75,12 @@ if (! empty($reviews)) {
   echo "<span class='stars'>" . str_repeat("★", $row['rating']) . str_repeat("☆", 5 - $row['rating']) . "</span>";
     echo "<p>" . htmlspecialchars($row['comment']) . "</p>";
     echo "<p>$date</p>";  // Only date shown here
-      // if admin, show delete button form
+      // if admin, show delete button which opens a modal confirmation
   if ($isAdmin) {
-    echo "<form method='post' action='" . base_url('reviews/delete/' . $row['id']) . "' class='d-grid gap-2 d-md-flex justify-content-md-end' onsubmit=\"return confirm('Delete this review?');\">";
-    echo csrf_field();
-    echo "<button type='submit' class='btn btn-sm btn-danger me-md-2'>Delete</button>";
-    echo "</form>";
+    // the modal form will post to reviews/delete/{id}
+    echo "<div class='d-grid gap-2 d-md-flex justify-content-md-end'>";
+    echo "<button type='button' class='btn btn-sm btn-danger me-md-2 btn-delete-review' data-id='" . htmlspecialchars($row['id'], ENT_QUOTES) . "'>Delete</button>";
+    echo "</div>";
   }
     echo "</div>";
   }
@@ -88,3 +88,51 @@ if (! empty($reviews)) {
   echo "<p>No reviews yet.</p>";
 }
 ?>
+
+<!-- Delete Review Modal -->
+<div class="modal fade" id="deleteReviewModal" tabindex="-1" aria-labelledby="deleteReviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="deleteReviewForm" method="post" action="">
+        <?= csrf_field() ?>
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteReviewModalLabel">Delete Review</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this review?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // prepare bootstrap modal
+  var modalEl = document.getElementById('deleteReviewModal');
+  var deleteModal = null;
+  if (typeof bootstrap !== 'undefined' && modalEl) {
+    deleteModal = new bootstrap.Modal(modalEl, { keyboard: true });
+  }
+
+  // base URL for delete action (server-side generated)
+  var baseDeleteUrl = '<?= rtrim(base_url('reviews/delete'), '\\/') ?>';
+
+  // attach click handlers to delete buttons
+  document.querySelectorAll('.btn-delete-review').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = this.dataset.id;
+      var form = document.getElementById('deleteReviewForm');
+      if (form) {
+        form.action = baseDeleteUrl + '/' + encodeURIComponent(id);
+      }
+      if (deleteModal) deleteModal.show();
+    });
+  });
+});
+</script>

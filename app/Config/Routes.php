@@ -15,6 +15,11 @@ $routes->post('/submit_review', 'Reviews::store');
 // Allow admins to delete reviews
 $routes->post('reviews/delete/(:num)', 'Reviews::delete/$1');
 $routes->get('/gallery', 'Home::gallery');
+// AJAX endpoints for gallery edit/delete
+$routes->post('/gallery/edit', 'Home::galleryEdit');
+$routes->post('/gallery/delete', 'Home::galleryDelete');
+// Add gallery item
+$routes->post('/gallery/add', 'Home::galleryAdd');
 $routes->get('/gameplay', 'Home::gameplay');
 $routes->get('/content', 'Home::content');
 // $routes->get('/registration','AccountController::registration');
