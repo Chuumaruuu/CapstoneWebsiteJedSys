@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Road+Rage&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo CSS.'hover.css'; ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
 </head>
 <body style="font-family: Londrina Solid, sans-serif; background-image: url('<?php echo IMG.'Eden Island Frontier Main Menu.jpg'; ?>');
         background-size: cover;
