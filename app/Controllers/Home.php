@@ -7,12 +7,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        $session = session();
-        if($session->has('Firstname')){
-            return view('landing');
-        }else{
-            return view('login');
-        }
+        return view('landing');
     }
 
     public function landing(): string
@@ -27,24 +22,14 @@ class Home extends BaseController
 
     public function about(): string
     {
-        $session = session();
-        if($session->has('Firstname')){
-            return view('about');
-        }else{
-            return view('login');
-        }
+        return view('about');
     }
 
     public function gallery(): string
     {
-        $session = session();
-        if($session->has('Firstname')){
-            $g = new GalleryModel();
-            $data['gallery'] = $g->orderBy('ID','DESC')->findAll();
-            return view('gallery', $data);
-        }else{
-            return view('login');
-        }
+        $g = new GalleryModel();
+        $data['gallery'] = $g->orderBy('ID','DESC')->findAll();
+        return view('gallery', $data);
     }
 
     /**
@@ -219,22 +204,12 @@ class Home extends BaseController
     }
     public function gameplay(): string
     {
-        $session = session();
-        if($session->has('Firstname')){
-            return view('gameplay');
-        }else{
-            return view('login');
-        }
+        return view('gameplay');
     }
 
     public function forum(): string
     {
-        $session = session();
-        if ($session->has('Firstname')) {
-            return view('forum');
-        } else {
-            return view('login');
-        }
+        return view('forum');
     }
 
     public function content(): string

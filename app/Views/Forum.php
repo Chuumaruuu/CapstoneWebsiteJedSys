@@ -23,7 +23,7 @@
             <?php $session = session(); $firstname = $session->get('Firstname'); $lastname = $session->get('Lastname'); $displayName = trim(($firstname ?? '') . ' ' . ($lastname ?? '')); ?>
 
         <?php if (! $session->has('Firstname')): ?>
-          <p>Please <a href="<?= base_url('login') ?>">log in</a> to leave a review.</p>
+          <p class = "h3">Please <a href="<?= base_url('login') ?>">log in</a> to leave a review.</p>
         <?php endif; ?>
 
         <div id="reviews">
