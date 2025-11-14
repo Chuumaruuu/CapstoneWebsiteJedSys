@@ -21,9 +21,9 @@
                 <a href="<?=base_url().'forum'?>" class="nav-link px-3 link-body-emphasis fs-4 hvr-hang">Forum</a>
             </li>
         </ul>
-        <?php if (isset($_SESSION['ID'])): ?>
-          <?php $profileImage = !empty($_SESSION['Image'])
-            ? base_url().'uploads/avatars/'.$_SESSION['Image']
+        <?php $session = session(); if ($session->has('ID')): ?>
+          <?php $profileImage = !empty($session->get('Image'))
+            ? base_url().'uploads/avatars/'. $session->get('Image')
               : IMG.'Default-Profile.jpg';
           ?>
             <!-- Show dropdown if session is active -->
@@ -47,6 +47,8 @@
 </div>
 </header>
 
+<?php if ($session->has('ID')): ?>
+
 <!-- Bootstrap Modal -->
 <div class="modal fade" id="userProfileModal" tabindex="-1" aria-labelledby="userProfileModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -59,22 +61,22 @@
         <div class="row">
           <div class="col-lg-4 text-center">
           <img src="<?= $profileImage ?>" alt="mdo" class="rounded-circle img-fluid" style="width: 150px;">
-            <h5 class="my-3"><?= $_SESSION['Firstname'] . " " . $_SESSION['Lastname']; ?></h5>
+            <h5 class="my-3"><?= $session->get('Firstname') . " " . $session->get('Lastname'); ?></h5>
           </div>
           <div class="col-lg-8">
             <ul class="list-group">
             <li class="list-group-item">
-                <strong>Full Name:</strong> <?= $_SESSION['Firstname'] . " " . $_SESSION['Middlename'] . " " . $_SESSION['Lastname']; ?>
+                <strong>Full Name:</strong> <?= $session->get('Firstname') . " " . $session->get('Middlename') . " " . $session->get('Lastname'); ?>
               </li>
               <li class="list-group-item">
-                <strong>Email:</strong> <?= $_SESSION['Email']; ?>
+                <strong>Email:</strong> <?= $session->get('Email'); ?>
               </li>
               <li class="list-group-item">
-                <strong>Contact Number:</strong> <?= $_SESSION['Contactno']; ?>
+                <strong>Contact Number:</strong> <?= $session->get('Contactno'); ?>
               </li>
               <li class="list-group-item">
-                <strong>Birthdate:</strong> <?php if (isset($_SESSION['Birthdate'])) {
-                  $date = date_create($_SESSION['Birthdate']);
+                <strong>Birthdate:</strong> <?php if ($session->has('Birthdate')) {
+                  $date = date_create($session->get('Birthdate'));
                     echo date_format($date, "F j, Y");
                   } else {
                     echo "Birthdate not provided";
@@ -91,8 +93,7 @@
     </div>
   </div>
 </div>
-
-<!-- Edit Profile Modal -->
+      <!-- Edit Profile Modal -->
 <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -109,27 +110,27 @@
             <div class="col-lg-8">
               <div class="mb-3">
                 <label for="firstname" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="Firstname" name="Firstname" value="<?= $_SESSION['Firstname']; ?>" required>
+                <input type="text" class="form-control" id="Firstname" name="Firstname" value="<?= $session->get('Firstname'); ?>" required>
               </div>
               <div class="mb-3">
                 <label for="middlename" class="form-label">Middle Name</label>
-                <input type="text" class="form-control" id="Middlename" name="Middlename" value="<?= $_SESSION['Middlename']; ?>">
+                <input type="text" class="form-control" id="Middlename" name="Middlename" value="<?= $session->get('Middlename'); ?>">
               </div>
               <div class="mb-3">
                 <label for="lastname" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="Lastname" name="Lastname" value="<?= $_SESSION['Lastname']; ?>" required>
+                <input type="text" class="form-control" id="Lastname" name="Lastname" value="<?= $session->get('Lastname'); ?>" required>
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="Email" name="Email" value="<?= $_SESSION['Email']; ?>" required>
+                <input type="email" class="form-control" id="Email" name="Email" value="<?= $session->get('Email'); ?>" required>
               </div>
               <div class="mb-3">
                 <label for="contactno" class="form-label">Contact Number</label>
-                <input type="text" class="form-control" id="Contactno" name="Contactno" value="<?= $_SESSION['Contactno']; ?>" required>
+                <input type="text" class="form-control" id="Contactno" name="Contactno" value="<?= $session->get('Contactno'); ?>" required>
               </div>
               <div class="mb-3">
                 <label for="birthdate" class="form-label">Birthdate</label>
-                <input type="date" class="form-control" id="Birthdate" name="Birthdate" value="<?= $_SESSION['Birthdate']; ?>" required>
+                <input type="date" class="form-control" id="Birthdate" name="Birthdate" value="<?= $session->get('Birthdate'); ?>" required>
               </div>
               <div class="mb-3">
                 <label for="NewPassword" class="form-label">Change Password</label>
@@ -144,8 +145,8 @@
                 <input type="file" class="form-control" id="ProfileImage" name="ProfileImage" accept="image/png,image/jpeg,image/jpg">
                 <small class="text-muted d-block">Max 2MB. JPG or PNG.</small>
               </div>
-              <?php if (!empty($_SESSION['Image'])): ?>
-                <input type="hidden" name="ExistingImage" value="<?= esc($_SESSION['Image']) ?>">
+              <?php if (!empty($session->get('Image'))): ?>
+                <input type="hidden" name="ExistingImage" value="<?= esc($session->get('Image')) ?>">
               <?php endif; ?>
             </div>
           </div>
@@ -158,3 +159,4 @@
     </div>
   </div>
 </div>
+<?php endif; ?>
