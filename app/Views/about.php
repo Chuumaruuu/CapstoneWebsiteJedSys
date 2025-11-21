@@ -61,7 +61,7 @@
     </div>
     <div class="col">
         <div class="card rounded-4">
-          <img src="<?php echo IMG.'Default-Profile.jpg'; ?>" class="card-img-top p-2 rounded-4" alt="JLT">
+          <img src="<?php echo IMG.'1t1231y323hn.jpg'; ?>" class="card-img-top p-2 rounded-4" alt="JLT">
           <div class="card-body">
             <h5 class="card-title">Nhil Patrick Morales</h5>
             <p class="card-text">Team Member</p>
