@@ -10,10 +10,9 @@
             </div>
             <div class="col-md-7 mh-100">
                 <div class="mt-3 text-start" style="color:#eee;">
-                    <ul class="fs-4">
+                    <ul class="fs-2">
                         <li><strong>Base Controls:</strong> general camera and selection controls used in the main game</li>
                         <li><strong>Minigame Controls:</strong> specific inputs for the minigames — move with W/A/S/D (or arrow keys), use Left Mouse Button to select/trigger actions</li>
-                        <li><strong>Per-minigame notes:</strong> Farming uses WASD + Left Click to plant; Woodcutting requires timing with Space/Left Click; Mining is a Minesweeper-style grid with movement and left/right click actions; Fishing shows letters to press on the keyboard quickly.</li>
                     </ul>
                 </div>
             </div>
@@ -31,25 +30,25 @@
       <div class="p-2">
         <div class="minigame-card" tabindex="0" aria-label="Farming minigame">
           <img src="<?php echo IMG.'Farm.gif'; ?>" class="col-md-12" alt="Farming preview">
-          <div class="overlay">Farming Minigame</div>
+          <div class="overlay text-center px-4">Farming Minigame<br>Farming uses WASD + Left Click to plant</div>
         </div>
       </div>
       <div class="p-2">
         <div class="minigame-card" tabindex="0" aria-label="Woodcutting minigame">
           <img src="<?php echo IMG.'Wood.gif'; ?>" class="col-md-12" alt="Woodcutting preview">
-          <div class="overlay">Woodcutting  Minigame</div>
+          <div class="overlay text-center  px-4">Woodcutting  Minigame<br>Woodcutting requires timing with Space/Left Click</div>
         </div>
       </div>
       <div class="p-2">
         <div class="minigame-card" tabindex="0" aria-label="Mining minigame">
           <img src="<?php echo IMG.'Mine.gif'; ?>" class="col-md-12" alt="Mining preview">
-          <div class="overlay">Mining  Minigame</div>
+          <div class="overlay text-center  px-4">Mining  Minigame<br>Mining is a Minesweeper-style grid with movement and left/right click actions</div>
         </div>
       </div>
       <div class="p-2">
         <div class="minigame-card" tabindex="0" aria-label="Fishing minigame">
           <img src="<?php echo IMG.'Fish.gif'; ?>" class="col-md-12" alt="Fishing preview">
-          <div class="overlay">Fishing  Minigame</div>
+          <div class="overlay text-center px-4">Fishing  Minigame<br>Fishing shows letters to press on the keyboard quickly</div>
         </div>
       </div>
     </div>
