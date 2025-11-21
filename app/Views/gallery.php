@@ -2,7 +2,7 @@
 <?= $this->section('pageContents') ?>
 <main>
 <div class="container py-5">
-<p class ="lead mb-4 fw-bold display-1 text-center">In-Game Asset Gallery</p>
+<p class ="lead mb-4 fw-bold display-1 text-center text-white">In-Game Asset Gallery</p>
 <?php
   // determine if current user is admin (check session first, then users table)
   $session = session();
