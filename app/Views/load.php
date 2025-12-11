@@ -85,7 +85,7 @@ function percentage($count, $total) {
 
           <?php if ($isAdmin): ?>
             <div class="mt-2 text-end">
-              <button type="button" class="btn btn-sm btn-danger btn-delete-review" data-id="<?= esc($row['id'], ENT_QUOTES) ?>">Delete</button>
+              <button type="button" class="btn btn-sm btn-danger btn-delete-review" data-id="<?= esc($row['id'], 'attr') ?>">Delete</button>
             </div>
           <?php endif; ?>
         </div>
