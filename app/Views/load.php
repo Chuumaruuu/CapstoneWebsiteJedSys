@@ -59,36 +59,49 @@ function percentage($count, $total) {
 
 <hr>
 
-<!-- Reviews list -->
-<?php
-if (! empty($reviews)) {
-  foreach ($reviews as $row) {
-    $date = date("Y-m-d", strtotime($row['created_at'])); // Format date only
+<!-- Reviews list (cards with client-side pagination: 6 per page -> 3 columns x 2 rows) -->
+<?php if (! empty($reviews)): ?>
+  <div class="row g-4" id="reviewsGrid">
+  <?php foreach ($reviews as $row):
+    $date = date("Y-m-d", strtotime($row['created_at']));
+    $imgSrc = !empty($row['image']) ? base_url('uploads/avatars/' . $row['image']) : IMG . 'Default-Profile.jpg';
+  ?>
+    <div class="col-md-4 review-card-item" data-id="<?= esc($row['id']) ?>">
+      <div class="card h-100">
+        <div class="card-body d-flex flex-column">
+          <div class="d-flex align-items-center mb-2">
+            <img src="<?= esc($imgSrc) ?>" alt="avatar" class="rounded-circle me-2" style="width:48px;height:48px;object-fit:cover;">
+            <div>
+              <strong><?= htmlspecialchars($row['username']) ?></strong>
+              <div class="text-muted small"><?= $date ?></div>
+            </div>
+          </div>
 
-  echo "<div class='review my-5'>";
-  echo "<div class='review-header d-flex align-items-center my-2'>";
-  // profile image (if available) - use uploads/avatars/<filename> or default image
-  $imgSrc = !empty($row['image']) ? base_url('uploads/avatars/' . $row['image']) : IMG . 'Default-Profile.jpg';
-  echo "<img src='" . esc($imgSrc) . "' alt='avatar' class='rounded-circle me-2' style='width:40px;height:40px;object-fit:cover;'>";
-  echo "<strong class='me-2'>" . htmlspecialchars($row['username']) . "</strong> ";
-  echo "</div>";
-  echo "<span class='stars'>" . str_repeat("★", $row['rating']) . str_repeat("☆", 5 - $row['rating']) . "</span>";
-    echo "<p>" . htmlspecialchars($row['comment']) . "</p>";
-    echo "<p>$date</p>";  // Only date shown here
-      // if admin, show delete button which opens a modal confirmation
-  if ($isAdmin) {
-    // the modal form will post to reviews/delete/{id}
-    echo "<div class='d-grid gap-2 d-md-flex justify-content-md-end'>";
-    echo "<button type='button' class='btn btn-sm btn-danger me-md-2 btn-delete-review' data-id='" . htmlspecialchars($row['id'], ENT_QUOTES) . "'>Delete</button>";
-    echo "</div>";
-  }
-    echo "</div>";
-  }
-} else {
-  echo "<p>No reviews yet.</p>";
-}
-?>
+          <div class="mb-2">
+            <span class="text-warning"><?= str_repeat('★', $row['rating']) . str_repeat('☆', 5 - $row['rating']) ?></span>
+          </div>
 
+          <p class="card-text flex-grow-1"><?= htmlspecialchars($row['comment']) ?></p>
+
+          <?php if ($isAdmin): ?>
+            <div class="mt-2 text-end">
+              <button type="button" class="btn btn-sm btn-danger btn-delete-review" data-id="<?= esc($row['id'], ENT_QUOTES) ?>">Delete</button>
+            </div>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
+  <?php endforeach; ?>
+  </div>
+
+  <!-- Pagination controls -->
+  <nav aria-label="Reviews pagination" class="mt-4">
+    <ul class="pagination justify-content-center" id="reviewsPagination"></ul>
+  </nav>
+
+<?php else: ?>
+  <p>No reviews yet.</p>
+<?php endif; ?>
 <!-- Delete Review Modal -->
 <div class="modal fade" id="deleteReviewModal" tabindex="-1" aria-labelledby="deleteReviewModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -123,16 +136,88 @@ document.addEventListener('DOMContentLoaded', function () {
   // base URL for delete action (server-side generated)
   var baseDeleteUrl = '<?= rtrim(base_url('reviews/delete'), '\\/') ?>';
 
-  // attach click handlers to delete buttons
-  document.querySelectorAll('.btn-delete-review').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var id = this.dataset.id;
-      var form = document.getElementById('deleteReviewForm');
-      if (form) {
-        form.action = baseDeleteUrl + '/' + encodeURIComponent(id);
-      }
-      if (deleteModal) deleteModal.show();
+  // attach click handlers to delete buttons (works for current DOM and future shown items)
+  function attachDeleteHandlers() {
+    document.querySelectorAll('.btn-delete-review').forEach(function(btn){
+      btn.removeEventListener('click', btn._delHandler);
+      var handler = function(){
+        var id = this.dataset.id;
+        var form = document.getElementById('deleteReviewForm');
+        if (form) {
+          form.action = baseDeleteUrl + '/' + encodeURIComponent(id);
+        }
+        if (deleteModal) deleteModal.show();
+      };
+      btn.addEventListener('click', handler);
+      btn._delHandler = handler;
     });
-  });
+  }
+
+  attachDeleteHandlers();
+
+  // --- Pagination logic for reviews ---
+  (function(){
+    var itemsPerPage = 6; // 3 columns x 2 rows
+    var container = document.getElementById('reviewsGrid');
+    if (!container) return;
+    var items = Array.prototype.slice.call(container.querySelectorAll('.review-card-item'));
+    var paginationEl = document.getElementById('reviewsPagination');
+    var totalItems = items.length;
+    var totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
+    var currentPage = 1;
+
+    function renderPage(page) {
+      currentPage = page;
+      var start = (page - 1) * itemsPerPage;
+      var end = start + itemsPerPage;
+      items.forEach(function(it, idx){
+        if (idx >= start && idx < end) it.style.display = '';
+        else it.style.display = 'none';
+      });
+      renderPagination();
+    }
+
+    function renderPagination() {
+      if (!paginationEl) return;
+      paginationEl.innerHTML = '';
+
+      var createPageItem = function(label, page, disabled, active) {
+        var li = document.createElement('li');
+        li.className = 'page-item' + (disabled ? ' disabled' : '') + (active ? ' active' : '');
+        var a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.textContent = label;
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          if (disabled) return;
+          renderPage(page);
+        });
+        li.appendChild(a);
+        return li;
+      };
+
+      // Prev
+      paginationEl.appendChild(createPageItem('Previous', Math.max(1, currentPage - 1), currentPage === 1, false));
+
+      // page numbers (limit displayed count if many pages)
+      var maxVisible = 5;
+      var startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+      var endPage = Math.min(totalPages, startPage + maxVisible - 1);
+      if (endPage - startPage < maxVisible - 1) {
+        startPage = Math.max(1, endPage - maxVisible + 1);
+      }
+
+      for (var p = startPage; p <= endPage; p++) {
+        paginationEl.appendChild(createPageItem(p, p, false, p === currentPage));
+      }
+
+      // Next
+      paginationEl.appendChild(createPageItem('Next', Math.min(totalPages, currentPage + 1), currentPage === totalPages, false));
+    }
+
+    // initialize
+    renderPage(1);
+  })();
 });
 </script>
