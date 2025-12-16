@@ -35,18 +35,30 @@ class AccountController extends BaseController
     ];
     if($this->validate($rules)){
         $u = new UserModel();
+        $token = $this->token(100);
+        $to = $this->request->getVar('Email');
         $data = [
             'Firstname'=>$this->request->getVar('Firstname'),
             'Middlename'=>$this->request->getVar('Middlename'),
             'Lastname'=>$this->request->getVar('Lastname'),
             'Birthdate'=>$this->request->getVar('Birthdate'),
-            'Email'=>$this->request->getVar('Email'),
+            'Email'=>$to,
             'Contactno'=>$this->request->getVar('Contactno'),
             'Password'=>password_hash($this->request->getVar('Password'), PASSWORD_DEFAULT),
             'Accesslevel'=>'User',
-            'Status'=>'active'
+            'Status'=>'disabled',
+            'Token'=>$token
         ];
         $u->save($data);
+        $subject = 'Account Verification - Eden Island Frontier';
+        $verifyLink = base_url('verifyToken')."?email=".$to."&token=".$token;
+        $message = "Dear ".$this->request->getVar('Firstname').",<br><br>";
+        $message .= "Thank you for registering at Eden Island Frontier. Please click the link below to verify your account:<br><br>";
+        $message .= "<a href=\"".$verifyLink."\">Verify your account</a><br><br>";
+        $message .= "If you did not register for an account, please ignore this email.<br><br>";
+        $message .= "Best regards,<br>Eden Island Frontier Team";
+
+        $this->sendMail($to, $subject, $message);
         return redirect()->to(base_url('login'));
     }else{
         $data['validation'] = $this->validator;
@@ -88,6 +100,48 @@ class AccountController extends BaseController
             }
         }else{
             $session->setFlashdata('error', 'Email not found. Please Register First.');
+            return redirect()->to(base_url('login'));
+        }
+    }
+
+    public function verifyToken()
+    {
+        $session = session();
+        $u = new UserModel();
+
+        // Get email and token from query parameters
+        $email = $this->request->getGet('email');
+        $token = $this->request->getGet('token');
+
+        // Validate that both parameters exist
+        if (!$email || !$token) {
+            $session->setFlashdata('error', 'Invalid verification link.');
+            return redirect()->to(base_url('login'));
+        }
+
+        // Find user by email and token
+        $data = $u->where('Email', $email)
+                   ->where('Token', $token)
+                   ->first();
+
+        if ($data) {
+            // Check if already active
+            if ($data['Status'] == 'active') {
+                $session->setFlashdata('info', 'Your account is already verified. Please login.');
+                return redirect()->to(base_url('login'));
+            }
+
+            // Update status to active and clear token
+            $updateData = [
+                'Status' => 'active',
+                'Token' => null
+            ];
+            $u->update($data['ID'], $updateData);
+
+            $session->setFlashdata('success', 'Account verified successfully! You can now login.');
+            return redirect()->to(base_url('login'));
+        } else {
+            $session->setFlashdata('error', 'Invalid or expired verification link.');
             return redirect()->to(base_url('login'));
         }
     }
@@ -180,6 +234,33 @@ class AccountController extends BaseController
 
         return redirect()->to(base_url())->with('success', 'Profile updated successfully!');
     }
+
+    public function sendMail($to, $subject, $message)
+    {
+        $to = $to;
+        $subject = $subject;
+        $message = $message;
+        $headers = 'Eden Island Frontier'. "\r\n";
+        $headers = 'Content-Type: text/html; charset=iso-8859-1' . "\r\n";
+        $email = \Config\Services::email();
+        $email->setMailType('html');
+        $email->setTo($to);
+        $email->setFrom('edenislandfrontier@gmail.com', $subject);
+        $email->setMessage($message);
+        if ($email->send()) {
+            echo 'Email sent successfully';
+        } else {
+            $data = $email->printDebugger(['headers']);
+            print_r($data);
+        }
+    }
+
+    public function token($length)
+    {
+        $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        return substr(str_shuffle($str_result), 0, $length);
+    }
+
 
     public function logout()
     {
