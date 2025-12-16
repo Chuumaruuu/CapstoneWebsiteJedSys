@@ -18,5 +18,7 @@ class UserModel extends Model
         'Password',
         'Accesslevel',
         'Status',
-        'Image'];
+        'Image',
+        'Token'
+    ];
 }

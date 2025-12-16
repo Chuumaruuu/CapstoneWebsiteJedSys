@@ -41,11 +41,17 @@
   </div>
   <div class="col-11">
     <label for="inputPassword" class="form-label">Password</label>
-    <input type="text" class="form-control" id="inputPassword" name="Password">
+    <div class="input-group">
+      <input type="password" class="form-control" id="inputPassword" name="Password">
+      <button class="btn btn-outline-secondary" type="button" id="togglePassword">Show</button>
+    </div>
   </div>
   <div class="col-11">
     <label for="inputConfirmpassword" class="form-label">Confirm Password</label>
-    <input type="text" class="form-control" id="inputConfirmpassword" name="ConfirmPassword">
+    <div class="input-group">
+      <input type="password" class="form-control" id="inputConfirmpassword" name="ConfirmPassword">
+      <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">Show</button>
+    </div>
   </div>
   <div class="col-11">
     <button type="submit" class="btn btn-primary">Register</button>
@@ -54,6 +60,28 @@
 
 </form>
 </div>
+<script>
+  (function () {
+    const toggleButtons = [
+      { inputId: 'inputPassword', buttonId: 'togglePassword' },
+      { inputId: 'inputConfirmpassword', buttonId: 'toggleConfirmPassword' }
+    ];
+
+    toggleButtons.forEach(({ inputId, buttonId }) => {
+      const input = document.getElementById(inputId);
+      const button = document.getElementById(buttonId);
+      if (!input || !button) {
+        return;
+      }
+
+      button.addEventListener('click', () => {
+        const isPassword = input.getAttribute('type') === 'password';
+        input.setAttribute('type', isPassword ? 'text' : 'password');
+        button.textContent = isPassword ? 'Hide' : 'Show';
+      });
+    });
+  })();
+</script>
 </body>
 </html>
 <?= $this->endSection('pageContents') ?>

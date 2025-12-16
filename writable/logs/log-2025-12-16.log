@@ -1,0 +1,109 @@
+ERROR - 2025-12-16 02:27:05 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'D:\\xampp\\htdocs...', 1762)
+#1 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1762): mail('lgmontinola@fit...', '', 'This is a test ...', 'Date: Tue, 16 D...', '-f Testingemail...')
+#2 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(17): CodeIgniter\Email\Email->send()
+#5 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(39): App\Controllers\Home->sendMail()
+#6 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(933): App\Controllers\Home->mail()
+#7 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\xampp\htdocs\CapstoneWebsiteJedSys\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2025-12-16 02:27:05 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2025-12-16 02:27:05 --> 
+ERROR - 2025-12-16 02:33:02 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'D:\\xampp\\htdocs...', 1762)
+#1 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1762): mail('lgmontinola@fit...', '', 'This is a test ...', 'Date: Tue, 16 D...', '-f Testingemail...')
+#2 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(17): CodeIgniter\Email\Email->send()
+#5 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(39): App\Controllers\Home->sendMail()
+#6 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(933): App\Controllers\Home->mail()
+#7 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\xampp\htdocs\CapstoneWebsiteJedSys\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2025-12-16 02:33:02 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2025-12-16 02:33:02 --> 
+ERROR - 2025-12-16 02:33:45 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'D:\\xampp\\htdocs...', 1762)
+#1 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1762): mail('lgmontinola@fit...', '', 'This is a test ...', 'Date: Tue, 16 D...', '-f lgmontinola@...')
+#2 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(17): CodeIgniter\Email\Email->send()
+#5 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(39): App\Controllers\Home->sendMail()
+#6 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(933): App\Controllers\Home->mail()
+#7 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\xampp\htdocs\CapstoneWebsiteJedSys\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2025-12-16 02:33:45 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2025-12-16 02:33:45 --> 
+ERROR - 2025-12-16 02:34:23 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'D:\\xampp\\htdocs...', 1762)
+#1 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1762): mail('lgmontinola@fit...', '', 'This is a test ...', 'Date: Tue, 16 D...', '-f lgmontinola@...')
+#2 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(17): CodeIgniter\Email\Email->send()
+#5 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(39): App\Controllers\Home->sendMail()
+#6 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(933): App\Controllers\Home->mail()
+#7 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\xampp\htdocs\CapstoneWebsiteJedSys\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2025-12-16 02:34:23 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2025-12-16 02:34:23 --> 
+ERROR - 2025-12-16 02:36:08 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php:1762
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'D:\\xampp\\htdocs...', 1762)
+#1 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1762): mail('lgmontinola@fit...', '', 'This is a test ...', 'Date: Tue, 16 D...', '-f edenislandfr...')
+#2 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1694): CodeIgniter\Email\Email->sendWithMail()
+#3 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Email\Email.php(1589): CodeIgniter\Email\Email->spoolEmail()
+#4 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(17): CodeIgniter\Email\Email->send()
+#5 D:\xampp\htdocs\CapstoneWebsiteJedSys\app\Controllers\Home.php(39): App\Controllers\Home->sendMail()
+#6 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(933): App\Controllers\Home->mail()
+#7 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 D:\xampp\htdocs\CapstoneWebsiteJedSys\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\xampp\htdocs\CapstoneWebsiteJedSys\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2025-12-16 02:36:08 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2025-12-16 02:36:08 --> 
+CRITICAL - 2025-12-16 04:00:21 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "http://localhost/CapstoneWebsiteJedSys/login.php"
+[Method: GET, Route: login]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('http://localhost/CapstoneWebsiteJedSys/login.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('http://localhost/CapstoneWebsiteJedSys/login', [], true)
+ 3 APPPATH\Controllers\AccountController.php(14): view('http://localhost/CapstoneWebsiteJedSys/login')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AccountController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AccountController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-16 04:00:47 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "http://localhost/CapstoneWebsiteJedSys/login.php"
+[Method: GET, Route: login]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('http://localhost/CapstoneWebsiteJedSys/login.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('http://localhost/CapstoneWebsiteJedSys/login', [], true)
+ 3 APPPATH\Controllers\AccountController.php(14): view('http://localhost/CapstoneWebsiteJedSys/login')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AccountController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AccountController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
