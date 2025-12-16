@@ -237,20 +237,23 @@ class AccountController extends BaseController
 
     public function sendMail($to, $subject, $message)
     {
-        $to = $to;
-        $subject = $subject;
-        $message = $message;
-        $headers = 'Eden Island Frontier'. "\r\n";
-        $headers = 'Content-Type: text/html; charset=iso-8859-1' . "\r\n";
         $email = \Config\Services::email();
         $email->setMailType('html');
+
+        // Use configured sender to avoid SMTP provider rejection
+        $fromEmail = config('Email')->fromEmail ?: config('Email')->SMTPUser;
+        $fromName  = config('Email')->fromName ?: 'Eden Island Frontier';
+
+        $email->setFrom($fromEmail, $fromName);
         $email->setTo($to);
-        $email->setFrom('edenislandfrontier@gmail.com', $subject);
+        $email->setSubject($subject);
         $email->setMessage($message);
+
         if ($email->send()) {
             echo 'Email sent successfully';
         } else {
-            $data = $email->printDebugger(['headers']);
+            // Show more details to diagnose issues during development
+            $data = $email->printDebugger(['headers', 'subject', 'body']);
             print_r($data);
         }
     }
