@@ -7,7 +7,7 @@
     <div class="mx-auto">
         <p class ="lead mb-4 fs-1 text-light">A 3D Strategy Simulation Game about the Implications of Climate Change and Economic Empowerment</p>
     </div>
-    <a href="<?=base_url().'about' ?>" class="btn px-5 fs-4 fw-bold hvr-grow" style="background-image: url('<?php echo IMG.'Button.png'; ?>');
+    <a href="<?=base_url().'about' ?>" class="btn px-5 fs-4 fw-bold hvr-grow" style="background-image: url('<?php echo IMG.'Button-Updated.png'; ?>');
         background-size: 100% 100%;
         background-repeat: no-repeat;
         background-position: center;
@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>
-    <a href="<?=base_url().'gallery' ?>" class="btn px-5 my-2 fs-4 fw-bold hvr-grow" style="background-image: url('<?php echo IMG.'Button.png'; ?>');
+    <a href="<?=base_url().'gallery' ?>" class="btn px-5 my-2 fs-4 fw-bold hvr-grow" style="background-image: url('<?php echo IMG.'Button-Updated.png'; ?>');
         background-size: 100% 100%;
         background-repeat: no-repeat;
         background-position: center;
