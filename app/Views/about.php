@@ -55,7 +55,7 @@
           <img src="<?php echo IMG.'EWbLq_t7.jpg'; ?>" class="card-img-top p-2 rounded-4" alt="JLT">
           <div class="card-body">
             <h5 class="card-title">Patrick James Acosta</h5>
-            <p class="card-text">Team Member</p>
+            <p class="card-text">Asst. Web Developer</p>
           </div>
         </div>
     </div>
@@ -64,7 +64,7 @@
           <img src="<?php echo IMG.'1t1231y323hn.jpg'; ?>" class="card-img-top p-2 rounded-4" alt="JLT">
           <div class="card-body">
             <h5 class="card-title">Nhil Patrick Morales</h5>
-            <p class="card-text">Team Member</p>
+            <p class="card-text">Game Animator</p>
           </div>
         </div>
     </div>
